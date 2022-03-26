@@ -10,19 +10,19 @@ opt-level = "s"
 
 [profile.dev]
 debug = true # Symbols are nice and they don't increase the size on Flash
-opt-level = "z"
+opt-level = "z" 
 
 [features]
 default = ["native"]
 native = ["esp-idf-sys/native"]
 
 [dependencies]
-embedded-graphics = "0.7.1"
-epd_driver = {path = "../ssd1681"}
-esp-idf-sys = { version = "0.30.6", features = ["binstart"] }
-esp-idf-hal = {version = "0.33.2"}
-embedded-hal = "1.0.0-alpha.7"
 dummy-pin = "0.1.1"
+embedded-graphics = "0.7.1"
+embedded-hal = "1.0.0-alpha.7"
+epd_driver = {git = "https://github.com/willemml/ssd1681", branch = "version_bump"}
+esp-idf-hal = {version = "0.33.2"}
+esp-idf-sys = {version = "0.30.6", features = ["binstart"]}
 
 [build-dependencies]
 anyhow = "1"
