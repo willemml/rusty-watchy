@@ -1,0 +1,29 @@
+[package]
+authors = ["willemml <willem@leit.so>"]
+edition = "2018"
+name = "rusty-watchy"
+resolver = "2"
+version = "0.1.0"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+default = ["native"]
+native = ["esp-idf-sys/native"]
+
+[dependencies]
+embedded-graphics = "0.7.1"
+epd_driver = {path = "../ssd1681"}
+esp-idf-sys = { version = "0.30.6", features = ["binstart"] }
+esp-idf-hal = {version = "0.33.2"}
+embedded-hal = "1.0.0-alpha.7"
+dummy-pin = "0.1.1"
+
+[build-dependencies]
+anyhow = "1"
+embuild = "0.28"
